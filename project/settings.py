@@ -23,7 +23,9 @@ CORS_ALLOW_CREDENTIALS = True
 #     "http://localhost:8080",
 #     "http://127.0.0.1:9000",
 # ]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['through-ur-eyes-production.up.railway.app', 'localhost', '127.0.0.1']
+
+
 CORS_ORIGIN_ALLOW_ALL = True
 CSRF_TRUSTED_ORIGINS = ['https://through-ur-eyes-production.up.railway.app/']
 
