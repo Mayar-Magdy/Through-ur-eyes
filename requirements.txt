@@ -45,3 +45,4 @@ virtualenv==20.19.0
 yarl==1.9.2
 zope.event==4.6
 zope.interface==6.0
+whitenoise==6.5.0
