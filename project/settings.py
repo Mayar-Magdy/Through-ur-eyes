@@ -27,7 +27,7 @@ ALLOWED_HOSTS = ["*"]
 
 
 CORS_ORIGIN_ALLOW_ALL = True
-CSRF_TRUSTED_ORIGINS = ['https://through-ur-eyes-production.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://through-ur-eyes-production.up.railway.app']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
