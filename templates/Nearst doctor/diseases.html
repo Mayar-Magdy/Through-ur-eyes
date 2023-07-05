@@ -1,0 +1,455 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    <!-- BLOCK1 -->
+    {% block content %}
+    <link rel="stylesheet" href="{%static 'static/css/chat.css'%}" />
+    <link rel="stylesheet" href="{%static 'static/css/home.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{%static 'assets/css/all.min.css'%}" />
+    <link rel="stylesheet" href="{%static 'assets/css/diseases.css'%}" />
+    {%endblock%}
+    <!-- END BLOCK1 -->
+
+   
+    <!-- BLOCK2 -->
+    {% block extra_content %}
+    <!-- Start Page Title Area -->
+    <div class="page-title-area">
+      <div class="container">
+        <div class="page-title-content">
+          <h2>Diseases</h2>
+
+          <ul>
+            <li>
+              <a href="index-2.html"> Home </a>
+            </li>
+
+            <li class="active">Diseases</li>
+          </ul>
+        </div>
+      </div>
+
+      <img
+        src="{%static 'assets/images/page-shape-1.png'%}"
+        class="shape page-shape-1"
+        alt="Image"
+      />
+      <img
+        src="{%static 'assets/images/page-shape-2.png'%}"
+        class="shape page-shape-2"
+        alt="Image"
+      />
+    </div>
+    <!-- End Page Title Area -->
+
+    <!-- start diesases -->
+    <!-- start upload image -->
+    <div class="container">
+      <div class="row justify-content-center text-primary">
+        <div class="col-lg-4 col-sm-8 my-3">
+          <input type="file" id="file" accept="image/*" hidden />
+          <div class="img-area" data-img="">
+            <i class="bx bxs-cloud-upload icon"></i>
+            <h3 class="text-success">Retina Image For Diabeties</h3>
+            <p class="text-success">
+              Image size must be less than <span>2MB</span>
+            </p>
+          </div>
+          <button class="select-image">Select Image</button>
+          <div class="d-flex justify-content-around my-3">
+            <button
+              type="button"
+              class="btn btn-success btn-lg rounded-pill"
+              id="show-tips1"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+              Get Result
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-8 my-3">
+          <input type="file" id="file2" accept="image/*" hidden />
+          <div class="img-area img-area2" data-img="">
+            <i class="bx bxs-cloud-upload icon"></i>
+            <h3 class="text-success">Eye Lid Image For Anemia</h3>
+            <p class="text-success">
+              Image size must be less than <span>2MB</span>
+            </p>
+          </div>
+          <button class="select-image select-image2">Select Image</button>
+          <div class="d-flex justify-content-around my-3">
+            <button
+              type="button"
+              class="btn btn-success btn-lg rounded-pill"
+              id="show-tips2"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop2"
+            >
+              Get Result
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-8 my-3">
+          <input type="file" id="file3" accept="image/*" hidden />
+          <div class="img-area img-area3" data-img="">
+            <i class="bx bxs-cloud-upload icon"></i>
+            <h3 class="text-success">Retina Image For Blood Pressure</h3>
+            <p class="text-success">
+              Image size must be less than <span>2MB</span>
+            </p>
+          </div>
+          <button class="select-image select-image3">Select Image</button>
+          <div class="d-flex justify-content-around my-3">
+            <button
+              type="button"
+              class="btn btn-success btn-lg rounded-pill"
+              id="show-tips3"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop3"
+            >
+              Get Result
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end upload image -->
+    <!-- start result -->
+    <!-- start modal -->
+    <!-- start modal 1 -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title text-success" id="staticBackdropLabel">
+              Result
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h2 id="health-ratio">12.7 <sub>gdl</sub><sup>-1</sup></h2>
+            <h3 id="health1">Anemia</h3>
+            <p class="tips1">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+              aut quo alias quam, nostrum voluptatem laudantium in porro illo
+              iste atque harum sunt enim, accusamus totam perspiciatis aliquam.
+              Perspiciatis, maiores!111
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              id="show-doctor-box1"
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Understood
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end modal 1 -->
+    <!-- start modal 2 -->
+    <div
+      class="modal fade"
+      id="staticBackdrop2"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title text-success" id="staticBackdropLabel2">
+              Result2
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h2 id="health-ratio">12.7 <sub>gdl</sub><sup>-1</sup></h2>
+            <h3 id="health2">Anemia</h3>
+            <p class="tips2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+              aut quo alias quam, nostrum voluptatem laudantium in porro illo
+              iste atque harum sunt enim, accusamus totam perspiciatis aliquam.
+              Perspiciatis, maiores!222
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              id="show-doctor-box2"
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Understood
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end modal 2 -->
+    <!-- start modal 3 -->
+    <div
+      class="modal fade"
+      id="staticBackdrop3"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title text-success" id="staticBackdropLabel3">
+              Result3
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <h2 id="health-ratio">12.7 <sub>gdl</sub><sup>-1</sup></h2>
+            <h3 id="health3">Anemia</h3>
+            <p class="tips3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+              aut quo alias quam, nostrum voluptatem laudantium in porro illo
+              iste atque harum sunt enim, accusamus totam perspiciatis aliquam.
+              Perspiciatis, maiores!333
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              id="show-doctor-box3"
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Understood
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end modal 3 -->
+    <!-- end modal -->
+  <!-- start find doctor -->
+<div class="find-doctor">
+  <div class="container">
+    <div class="main-heading">
+      <h2 class="text-primary">Find The Nearest Doctor</h2>
+    </div>
+    <div class="text-center my-3 append-lat-long">
+     
+      <button
+        type="button"
+        class="btn btn-success btn-lg rounded-pill"
+        onclick="getLocation()"
+      >
+        Access Your Location
+      </button>
+      <div class="">
+        <form method='POST'  action="{%url 'doctorsinfo' %}" >
+          {% csrf_token %}
+          <input type="text" id="latitude" name="latitude" />
+          <input type="text" id="longitude" name="longitude" />
+          <input type="submit" id="sub-form" value="Submit">
+          
+        </form>
+      </div>
+    </div>
+    <div class="doctor-box my-3 p-3 docs" style="display: none">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm 12">
+          <ul class="card">
+            <li class="card-header">
+              <h2 class="card-header-title" id="doctor-name"></h2>
+
+              <ul class="card-header-status list-inline">
+                <li class="win">
+                  <span class="open-status">False</span>
+                  <span class="open"></span>
+                  <span class="open-close">Closed</span>
+                </li>
+                <li class="win">
+                  <div class="rating">
+                    <p class="rating-num">Rating: <b>4</b></p>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                </li>
+              </ul>
+            </li>
+
+            <li class="card-item card-loss">
+              <h3 class="card-title text-success">Address</h3>
+
+              <p class="card-info">
+                <i class="fa-solid fa-location-dot" style="font-size: 25px"></i>
+                <span id="doctor-address"></span>
+              </p>
+
+              <div class="show-btn-location">
+                <ul class="list-inline card-menu left">
+                  <li class="card-menu-item">wanna location</li>
+                </ul>
+
+                <h4 class="card-price right">Find Here</h4>
+              </div>
+              <div class="btn-location-div">
+                <button class="btn btn-danger btn-location-btn">
+                  Doctor Location
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="doc-map">
+        <div class="main-heading">
+          <h2 class="text-primary">The Location Is</h2>
+        </div>
+        <div class="sec2map" style="overflow: hidden; height: 550px; width: 100%">
+          <div id="gmap_canvas" style="height: 100%; width: 100%"></div>
+          <div>
+            <small><a href="http://embedgooglemaps.com">embed google maps</a></small>
+          </div>
+          <div>
+            <small><a href="http://freedirectorysubmissionsites.com/">free web directories</a></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end find doctor -->
+
+<!-- end find doctor -->
+
+    <!-- end find doctor -->
+    <!-- end result -->
+    <!-- end diesases -->
+    {%endblock %}
+   
+    <!-- START BLOCK CONTENT -->
+    {% block extra_content1 %}
+    <script src="{%static 'static/scripts/chat.js'%}"></script>
+  
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyU6oAKtHYEnig-ld76_8BzW29IEETt5E&callback=initMap&v=weekly&channed=2"></script>
+    <script type="text/javascript">
+      function init_map() {
+        var myOptions = {
+          zoom: 14,
+          center: new google.maps.LatLng(29.31247185136865, 30.882404784697382),
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+        };
+        map = new google.maps.Map(
+          document.getElementById("gmap_canvas"),
+          myOptions
+        );
+        marker = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(
+            29.31247185136865,
+            30.882404784697382
+          ),
+        });
+        infowindow = new google.maps.InfoWindow({
+          content: "<strong>My Location</strong><br>in my heart<br>",
+        });
+        google.maps.event.addListener(marker, "click", function () {
+          infowindow.open(map, marker);
+        });
+        infowindow.open(map, marker);
+      }
+      google.maps.event.addDomListener(window, "load", init_map);
+    </script>
+    <script src="{%static 'assets/js/diseases.js'%}"></script>
+
+    <script>
+      var x = document.getElementById("latitude");
+      var z = document.getElementById("longitude");
+      function getLocation() {
+      if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+      x.value = "Geolocation is not supported by this browser.";
+      }
+      }
+
+      function showPosition(position) {
+      x.value =  position.coords.latitude;
+      z.value =  position.coords.longitude;
+      if (x.value != "" && z.value != "") {
+        
+        document.getElementById("sub-form").onclick=function(){
+          
+          document.querySelector(".docs").style.display = "block";
+        }
+        }
+      }
+ </script>
+    {% endblock %}
+    <!-- END BLOCK CONTENT -->
+  </body>
+</html>
