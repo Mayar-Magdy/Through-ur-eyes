@@ -23,7 +23,7 @@ CORS_ALLOW_CREDENTIALS = True
 #     "http://localhost:8080",
 #     "http://127.0.0.1:9000",
 # ]
-ALLOWED_HOSTS = ['through-ur-eyes-production.up.railway.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["*"]
 
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -31,7 +31,7 @@ CSRF_TRUSTED_ORIGINS = ['https://through-ur-eyes-production.up.railway.app/']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ALLOWED_HOSTS = []
+
 
 AUTH_USER_MODEL = 'Accounts.CustomUser'
 # Application definition
