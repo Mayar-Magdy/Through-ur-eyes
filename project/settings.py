@@ -13,16 +13,19 @@ SECRET_KEY = 'django-insecure-6r$(hu+3huxpl6@0b3(u-l1@$)*llkzvii57&1hyo4pv!8ejc5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 AUTH_USER_MODEL = 'capstone.User'
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 # CORS_ORIGIN_ALLOW_ALL=True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWED_ORIGINS = [
-    "https://example.com",
-    "https://sub.example.com",
-    "http://localhost:8080",
-    "http://127.0.0.1:9000",
-]
+# CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOWED_ORIGINS = [
+#     "https://example.com",
+#     "https://sub.example.com",
+#     "http://localhost:8080",
+#     "http://127.0.0.1:9000",
+# ]
+ALLOWED_HOSTS = ["*"]
+CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = ['through-ur-eyes-production.up.railway.app/']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
