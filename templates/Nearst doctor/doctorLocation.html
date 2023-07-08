@@ -14,10 +14,7 @@
     <link rel="stylesheet" href="{%static 'assets/css/all.min.css'%}" />
     <link rel="stylesheet" href="{%static 'assets/css/diseases.css'%}" />
     {%endblock%}
-    <!-- END BLOCK1 -->
 
-    
-    <!-- BLOCK2 -->
     {% block extra_content %}
     <!-- Start Page Title Area -->
     <div class="page-title-area">
@@ -27,7 +24,7 @@
 
           <ul>
             <li>
-              <a href="index-2.html"> Home </a>
+              <a href="{%url 'home'%}"> Home </a>
             </li>
 
             <li class="active">Diseases</li>
@@ -46,13 +43,6 @@
         alt="Image"
       />
     </div>
-    <!-- End Page Title Area -->
-
-    <!-- start diesases -->
-
-    <!-- start result -->
-
-    <!-- start find doctor -->
     <div class="find-doctor">
       <div class="container">
         <div class="main-heading">
@@ -60,7 +50,6 @@
         </div>
 
         <div class="doctor-box my-3 p-3 docs">
-
           <div class="row">
             {% for doctor in doctors %}
             <div class="col-lg-4 col-md-6 col-sm 12">
@@ -80,18 +69,15 @@
                       {% endif %}
                       <span class="open"></span>
                       <span class="open-close">{{doctor.open_now}}</span>
-                 
+      
                     </li>
                     <li class="win">
                       <div class="rating">
                         <p class="rating-num">Rating: <b>{{doctor.rating}}</b></p>
-        
                       </div>
                     </li>
-                    <!-- <li class="loss">-343,014</li> -->
                   </ul>
                 </li>
-
                 <li class="card-item card-loss">
                   <h3 class="card-title text-success">Address</h3>
 
@@ -102,12 +88,10 @@
                     ></i>
                     {{ doctor.vicinity }}
                   </p>
-
                   <div class="show-btn-location">
                     <ul class="list-inline card-menu left">
                       <li class="card-menu-item">wanna location</li>
                     </ul>
-
                     <h4 class="card-price right">Find Here</h4>
                   </div>
                   <div class="btn-location-div">
@@ -120,7 +104,6 @@
             </div>
             {% endfor %}
           </div>
-
           <div class="doc-map">
             <div class="main-heading">
               <h2 class="text-primary">The Location Is</h2>
@@ -149,20 +132,11 @@
         </div>
       </div>
     </div>
-    <!-- end find doctor -->
-    <!-- end result -->
-    <!-- end diesases -->
     {%endblock %}
-    <!-- END BLOCK2 -->
-
-    
-    <!-- START BLOCK CONTENT -->
     {% block extra_content1 %}
-    
     <script src="{%static 'static/scripts/chat.js'%}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyU6oAKtHYEnig-ld76_8BzW29IEETt5E&callback=initMap&v=weekly&channed=2"></script>
     <script type="text/javascript">
-      console.log({ latitude});
       function init_map() {
         var myOptions = {
           zoom: 14,

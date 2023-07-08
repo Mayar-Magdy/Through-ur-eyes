@@ -111,15 +111,75 @@ def services(request):
 def profile(request):
    return render(request,'registration/profile.html')
 
+
+   
+
 @login_required(login_url='login')
 def update_user(request):
  user= request.user
  if request.method == 'POST':
     new_phone = request.POST.get('phone_number')
-    user.phone_number = new_phone
+    new_email = request.POST.get('email')
+    old_password = request.POST.get('old_password')
+    new_password = request.POST.get('new_password')
+    if new_phone:
+        user.phone_number = new_phone
+    if new_email:
+        user.email = new_email
+    if old_password and new_password:
+        if user.check_password(old_password):
+            user.set_password(new_password)
+        else:
+            return JsonResponse({'message': 'Wrong old password'})
     user.save()
-    return JsonResponse({'status': 'success', 'message': 'Phone number updated successfully'})
+    return JsonResponse({'message': 'Data updated successfully'})
  else:
-     return JsonResponse({'status': 'error', 'message': 'Invalid request'})
-   
+     return JsonResponse({'message': 'Invalid request'})
 
+
+def about(request):
+   return render(request,'about.html')
+
+
+
+
+
+
+
+def FAQ(request):
+   return render(request,'faq.html')
+
+
+def help(request):
+   try:
+    return render(request,'how-we-help.html')
+   except:
+    return render(request,'how-we-help.html')
+
+  
+
+
+def privacy_policy(request):
+   return render(request,'privacy-policy.html')
+def terms_conditions(request):
+  try: 
+     return render(request,'terms-conditions.html')
+  except:
+     return render(request,'terms-conditions.html')
+
+
+def contact_us(request):
+   try:
+     return render(request,'contact-us.html')
+   except:
+     return render(request,'contact-us.html')
+
+
+
+def OurTeam(request):
+   try:
+     return render(request,'our-doctors.html')
+   except:
+     return render(request,'our-doctors.html')
+
+ 
