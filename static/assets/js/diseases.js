@@ -1,6 +1,6 @@
-const selectImage = document.querySelector(".select-image");
-const inputFile = document.querySelector("#file");
-const imgArea = document.querySelector(".img-area");
+const selectImage1 = document.querySelector(".select-image");
+const inputFile1 = document.querySelector("#file");
+const imgArea1 = document.querySelector(".img-area");
 
 const selectImage2 = document.querySelector(".select-image2");
 const inputFile2 = document.querySelector("#file2");
@@ -10,7 +10,7 @@ const selectImage3 = document.querySelector(".select-image3");
 const inputFile3 = document.querySelector("#file3");
 const imgArea3 = document.querySelector(".img-area3");
 
-selectImage.addEventListener("click", function () {
+selectImage1.addEventListener("click", function () {
   if (imgArea2.lastElementChild.hasAttribute("src")) {
     // imgArea2.lastElementChild.remove();
     const allImg = imgArea2.querySelectorAll("img");
@@ -23,24 +23,25 @@ selectImage.addEventListener("click", function () {
     allImg.forEach((item) => item.remove());
     imgArea3.classList.remove("active");
   }
-  inputFile.click();
+  inputFile1.click();
 });
 
-inputFile.addEventListener("change", function () {
-  const image = this.files[0];
-  if (image.size < 2000000) {
+inputFile1.addEventListener("change", function () {
+  imgFile1 = this.files[0];
+  if (imgFile1.size < 2000000) {
     const reader = new FileReader();
     reader.onload = () => {
-      const allImg = imgArea.querySelectorAll("img");
+      const allImg = imgArea1.querySelectorAll("img");
       allImg.forEach((item) => item.remove());
       const imgUrl = reader.result;
       const img = document.createElement("img");
       img.src = imgUrl;
-      imgArea.appendChild(img);
-      imgArea.classList.add("active");
-      imgArea.dataset.img = image.name;
+
+      imgArea1.appendChild(img);
+      imgArea1.classList.add("active");
+      imgArea1.dataset.img = imgFile1.name;
     };
-    reader.readAsDataURL(image);
+    reader.readAsDataURL(imgFile1);
   } else {
     alert("Image size more than 2MB");
   }
@@ -50,11 +51,11 @@ inputFile.addEventListener("change", function () {
 // const imgArea2 = document.querySelector(".img-area2");
 
 selectImage2.addEventListener("click", function () {
-  if (imgArea.lastElementChild.hasAttribute("src")) {
+  if (imgArea1.lastElementChild.hasAttribute("src")) {
     // imgArea.lastElementChild.remove();
-    const allImg = imgArea.querySelectorAll("img");
+    const allImg = imgArea1.querySelectorAll("img");
     allImg.forEach((item) => item.remove());
-    imgArea.classList.remove("active");
+    imgArea1.classList.remove("active");
   }
   if (imgArea3.lastElementChild.hasAttribute("src")) {
     // imgArea.lastElementChild.remove();
@@ -66,8 +67,8 @@ selectImage2.addEventListener("click", function () {
 });
 
 inputFile2.addEventListener("change", function () {
-  const image = this.files[0];
-  if (image.size < 2000000) {
+  imgFile2 = this.files[0];
+  if (imgFile2.size < 2000000) {
     const reader = new FileReader();
     reader.onload = () => {
       const allImg = imgArea2.querySelectorAll("img");
@@ -75,22 +76,23 @@ inputFile2.addEventListener("change", function () {
       const imgUrl = reader.result;
       const img = document.createElement("img");
       img.src = imgUrl;
+
       imgArea2.appendChild(img);
       imgArea2.classList.add("active");
-      imgArea2.dataset.img = image.name;
+      imgArea2.dataset.img = imgFile2.name;
     };
-    reader.readAsDataURL(image);
+    reader.readAsDataURL(imgFile2);
   } else {
     alert("Image size more than 2MB");
   }
 });
 
 selectImage3.addEventListener("click", function () {
-  if (imgArea.lastElementChild.hasAttribute("src")) {
+  if (imgArea1.lastElementChild.hasAttribute("src")) {
     // imgArea.lastElementChild.remove();
-    const allImg = imgArea.querySelectorAll("img");
+    const allImg = imgArea1.querySelectorAll("img");
     allImg.forEach((item) => item.remove());
-    imgArea.classList.remove("active");
+    imgArea1.classList.remove("active");
   }
   if (imgArea2.lastElementChild.hasAttribute("src")) {
     // imgArea.lastElementChild.remove();
@@ -102,8 +104,8 @@ selectImage3.addEventListener("click", function () {
 });
 
 inputFile3.addEventListener("change", function () {
-  const image = this.files[0];
-  if (image.size < 2000000) {
+  imgFile3 = this.files[0];
+  if (imgFile3.size < 2000000) {
     const reader = new FileReader();
     reader.onload = () => {
       const allImg = imgArea3.querySelectorAll("img");
@@ -113,76 +115,107 @@ inputFile3.addEventListener("change", function () {
       img.src = imgUrl;
       imgArea3.appendChild(img);
       imgArea3.classList.add("active");
-      imgArea3.dataset.img = image.name;
+      imgArea3.dataset.img = imgFile3.name;
     };
-    reader.readAsDataURL(image);
+    reader.readAsDataURL(imgFile3);
   } else {
     alert("Image size more than 2MB");
   }
 });
+
 ////////////////////////////////////////////////
 // start location MAYARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
-// var x = document.getElementById("latitude");
-// var z = document.getElementById("longitude");
-// function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition);
-//   } else {
-//     x.innerHTML = "Geolocation is not supported by this browser.";
-//   }
-// }
+var x = document.getElementById("latitude");
+var z = document.getElementById("longitude");
+var subDocLoc = document.getElementById("sub-doc-loc");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
 
-// function showPosition(position) {
-//   x.value = position.coords.latitude;
-//   z.value = position.coords.longitude;
-//   if (x.value != "" && z.value != "") {
-//     document.querySelector(".docs").style.display = "block";
-//   }
-// }
+function showPosition(position) {
+  x.value = position.coords.latitude;
+  z.value = position.coords.longitude;
+  if (x.value != "" && z.value != "") {
+    document.getElementById("sure-location").style.display = "block";
+    subDocLoc.style.display = "block";
+    document.getElementById("sub-doc-loc").onclick = function () {
+      document.querySelector(".docs").style.display = "block";
+    };
+  }
+}
 // end location MAYARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+
 ////////////////////////////////////////////////////////////
 // start show doctor box
-let health = document.getElementById("health1").innerText;
-let health2 = document.getElementById("health2").innerText;
-let health3 = document.getElementById("health3").innerText;
-let showDoctorBox = document.getElementById("show-doctor-box1");
+let health1 = document.getElementById("health1");
+let health2 = document.getElementById("health2");
+let health3 = document.getElementById("health3");
+let showDoctorBox1 = document.getElementById("show-doctor-box1");
 let showDoctorBox2 = document.getElementById("show-doctor-box2");
 let showDoctorBox3 = document.getElementById("show-doctor-box3");
-let tips = document.querySelector(".tips1");
+let tipsText1 = document.getElementById("tips-text1");
+let tipsText2 = document.getElementById("tips-text2");
+let tipsText3 = document.getElementById("tips-text3");
+let tips1 = document.querySelector(".tips1");
 let tips2 = document.querySelector(".tips2");
 let tips3 = document.querySelector(".tips3");
 let showTips = document.getElementById("show-tips1");
 let showTips2 = document.getElementById("show-tips2");
 let showTips3 = document.getElementById("show-tips3");
 
-showTips.onclick = function () {
-  if (health === "Anemia") {
-    tips.style.display = "block";
+async function sendRequst(image, endpoint) {
+  try {
+    const formData = new FormData();
+    formData.append("file", image);
+
+    const response = await fetch(`http://127.0.0.1:5000/predict/${endpoint}`, {
+      method: "POST",
+      body: formData,
+    });
+
+    return await response.json();
+  } catch (error) {
+    return "error";
   }
+}
+
+showTips.onclick = async function () {
+  const response = await sendRequst(imgFile1, "diabetic");
+
+  health1.innerText = response["health"];
+  tipsText1.innerText = response["tips"];
 };
 
-showTips2.onclick = function () {
-  if (health2 === "Anemia") {
-    tips2.style.display = "block";
-  }
+showTips2.onclick = async function () {
+  const response = await sendRequst(imgFile2, "anemia");
+
+  health2.innerText = response["health"];
+  tipsText2.innerText = response["tips"];
+
+  if (health2.innerText === "Anemia") tips2.style.display = "block";
 };
 
-showTips3.onclick = function () {
-  if (health3 === "Anemia") {
-    tips3.style.display = "block";
-  }
+showTips3.onclick = async function () {
+  const response = await sendRequst(imgFile3, "hypertension");
+
+  health3.innerText = response["health"];
+  tipsText3.innerText = response["tips"];
 };
 
-showDoctorBox.addEventListener("click", function () {
-  if (health === "Anemia") {
-    tips.style.display = "block";
+showDoctorBox1.addEventListener("click", function () {
+  if (health1.innerText === "Anemia") {
+    tips1.style.display = "block";
     document.querySelector(".find-doctor").style.display = "block";
     document.querySelector(".find-doctor").className = "text-black-50";
   }
 });
 
 showDoctorBox2.addEventListener("click", function () {
-  if (health2 === "Anemia") {
+  if (health2.innerText === "Anemia") {
     tips2.style.display = "block";
     document.querySelector(".find-doctor").style.display = "block";
     document.querySelector(".find-doctor").className = "text-black-50";
@@ -190,7 +223,7 @@ showDoctorBox2.addEventListener("click", function () {
 });
 
 showDoctorBox3.addEventListener("click", function () {
-  if (health3 === "Anemia") {
+  if (health3.innerText === "Anemia") {
     tips3.style.display = "block";
     document.querySelector(".find-doctor").style.display = "block";
     document.querySelector(".find-doctor").className = "text-black-50";

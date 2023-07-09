@@ -1,7 +1,6 @@
 
 {% extends 'base.html' %}
 {% load static %}
-    <!-- BLOCK1 -->
     {% block content %}
     <link rel="stylesheet" href="{%static 'static/css/chat.css'%}" />
     <link rel="stylesheet" href="{%static 'static/css/home.css'%}" />
@@ -20,10 +19,6 @@
     <link rel="stylesheet" href="{%static 'assets/css/all.min.css'%}" />
     <link rel="stylesheet" href="{%static 'assets/css/profile.css'%}" />
     {%endblock%}
-    <!-- END BLOCK1 -->
-
-
-    <!-- BLOCK2 -->
     {% block extra_content %}
     <!-- Start Page Title Area -->
     <div class="page-title-area">
@@ -65,32 +60,73 @@
         <div class=name5 >{{ request.user.username }}</div>
         
         
-        <div class="bio5">
-        <!-- Age: <span>21</span> -->
-        <h2>Edit Profile</h2>
-        </div>
-            
-        <div class="inp-holder">
+        <form method="POST" action="{% url 'update_user' %}">
+          {% csrf_token %}
+          <div class="bio5">
+            <!-- Age: <span>21</span> -->
+            <h2>Edit Profile</h2>
+          </div>
+          <div class="inp-holder">
             <div class="inp-container">
-                <input class="inp-field inp-field1" type="text" placeholder="01122535612" value="01122535612" id="phone" name="phone" disabled>
-                <span class="edit toggle1"><i class="fa-solid fa-pen-to-square toggle"></i></span>
+              <input
+                class="inp-field inp-field1"
+                type="text"
+                placeholder="01122535612"
+                value="01122535612"
+                id="phone_number"
+                name="phone_number"
+              />
+              <span class="edit toggle1"
+                ><i class="fa-solid fa-pen-to-square toggle"></i
+              ></span>
             </div>
             <div class="inp-container">
-                <input class="inp-field inp-field2" type="email" placeholder="01122535612" value="mahmoud.ragab187@gmail.com" id="email" name="email" disabled>
-                <span class="edit toggle2"><i class="fa-solid fa-pen-to-square toggle"></i></span>
+              <input
+                class="inp-field inp-field2"
+                type="email"
+                placeholder="anything@gmail.com"
+                value="mai@gmail.com"
+                id="email"
+                name="email"
+              />
+              <span class="edit toggle2"
+                ><i class="fa-solid fa-pen-to-square toggle"></i
+              ></span>
             </div>
             <div class="pass-container">
-                <input class="inp-field inp-field3" type="password" placeholder="********" value="12345678" id="old-pass" name="old-pass" disabled>
-                <span class="edit toggle3"><i class="fa-solid fa-pen-to-square toggle"></i></span>
+              <input
+                class="inp-field inp-field3"
+                type="password"
+                placeholder="********"
+                value="12345678"
+                id="password"
+                name="password"
+              />
+              <span class="edit toggle3"
+                ><i class="fa-solid fa-pen-to-square toggle"></i
+              ></span>
             </div>
             <div class="pass-container">
-                <input class="inp-field inp-field4" type="password" placeholder="********" value="12345678" id="new-pass" name="new-pass" disabled>
-                <span class="edit toggle4"><i class="fa-solid fa-pen-to-square toggle"></i></span>
+              <input
+                class="inp-field inp-field4"
+                type="password"
+                placeholder="********"
+                value="12345678"
+                id="new-pass"
+                name="new_password"
+              />
+              <span class="edit toggle4"
+                ><i class="fa-solid fa-pen-to-square toggle"></i
+              ></span>
             </div>
-            <button class="btn btn-primary save-btn rounded-pill">Save</button>
-        </div>
-    </div>
-            
+            <!-- <button class="btn btn-primary save-btn rounded-pill">Save</button> -->
+            <input
+              type="submit"
+              class="btn btn-primary save-btn rounded-pill"
+              value="Save"
+            />
+          </div>
+        </form>
         
         
         <div class= "highlights5">
@@ -123,6 +159,7 @@
         </div>
     </div> 
 </div>
+<script></script>
     <!-- end profile -->
     {%endblock %}
     <!-- end block2 -->

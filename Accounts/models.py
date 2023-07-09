@@ -106,10 +106,10 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 class CustomUser(AbstractUser):
-    username = models.CharField(max_length=200, unique=True)
-    national_number = models.CharField(max_length=14, unique=True, blank=True, validators=[validate_national_id_and_dob])
+    username = models.CharField(max_length=200)
+    national_number = models.CharField(max_length=14, unique=True, blank=True,validators=[validate_national_id_and_dob])
     phone_number = models.TextField(null=True)
-    email = models.EmailField(blank=True,unique=True)
+    email = models.EmailField(blank=True)
     gender = models.CharField(max_length=10, choices=[('male', 'Male'), ('female', 'Female')], blank=True)
     date_of_birth = models.DateField(blank=True, null=True)
     city = models.CharField(max_length=100 ,choices=CITY_CHOICES, default='Cairo')

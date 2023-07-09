@@ -88,6 +88,7 @@ def one(request):
         context ={'latitude':latitude,'longitude':longitude }
 
     return render(request, 'Nearst doctor/diseases.html',context)
+@login_required(login_url='login')
 def two(request):
     doctors = [
     ]

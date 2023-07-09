@@ -29,7 +29,7 @@
 
           <ul>
             <li>
-              <a href="index-2.html"> Home </a>
+              <a href="{url 'home'}"> Home </a>
             </li>
 
             <li class="active">Diseases</li>
@@ -303,65 +303,42 @@
       >
         Access Your Location
       </button>
-      <div class="">
-        <form method='POST'  action="{%url 'doctorsinfo' %}" >
-          {% csrf_token %}
-          <input type="text" id="latitude" name="latitude" />
-          <input type="text" id="longitude" name="longitude" />
-          <input type="submit" id="sub-form" value="Submit">
-          
-        </form>
-      </div>
+      <p
+            id="sure-location"
+            style="display: none; margin-top: 25px; color: #3270ff"
+          >
+            We ensure you that we will not use your location in any other
+            purpose, <b>Submit</b> to proceed
+          </p>
+          <div class="">
+            <form method="POST" id="form-reload" action="{% url 'Doctors' %}">
+              
+              {% csrf_token %}>
+              <input
+                type="text"
+                id="latitude"
+                name="latitude"
+                style="display: none"
+              />
+              <input
+                type="text"
+                id="longitude"
+                name="longitude"
+                style="display: none"
+              />
+              <input
+                class="btn btn-success rounded-pill my-3"
+                type="submit"
+                id="sub-doc-loc"
+                value="Submit"
+                style="display: none; margin: auto"
+              />
+            </form>
+          </div>
     </div>
     <div class="doctor-box my-3 p-3 docs" style="display: none">
       <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm 12">
-          <ul class="card">
-            <li class="card-header">
-              <h2 class="card-header-title" id="doctor-name"></h2>
-
-              <ul class="card-header-status list-inline">
-                <li class="win">
-                  <span class="open-status">False</span>
-                  <span class="open"></span>
-                  <span class="open-close">Closed</span>
-                </li>
-                <li class="win">
-                  <div class="rating">
-                    <p class="rating-num">Rating: <b>4</b></p>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                  </div>
-                </li>
-              </ul>
-            </li>
-
-            <li class="card-item card-loss">
-              <h3 class="card-title text-success">Address</h3>
-
-              <p class="card-info">
-                <i class="fa-solid fa-location-dot" style="font-size: 25px"></i>
-                <span id="doctor-address"></span>
-              </p>
-
-              <div class="show-btn-location">
-                <ul class="list-inline card-menu left">
-                  <li class="card-menu-item">wanna location</li>
-                </ul>
-
-                <h4 class="card-price right">Find Here</h4>
-              </div>
-              <div class="btn-location-div">
-                <button class="btn btn-danger btn-location-btn">
-                  Doctor Location
-                </button>
-              </div>
-            </li>
-          </ul>
-        </div>
+    
       </div>
     
       <div class="doc-map">
@@ -428,26 +405,27 @@
 
     <script>
       var x = document.getElementById("latitude");
-      var z = document.getElementById("longitude");
-      function getLocation() {
-      if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-      } else {
-      x.value = "Geolocation is not supported by this browser.";
-      }
-      }
+var z = document.getElementById("longitude");
+var subDocLoc = document.getElementById("sub-doc-loc");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
 
-      function showPosition(position) {
-      x.value =  position.coords.latitude;
-      z.value =  position.coords.longitude;
-      if (x.value != "" && z.value != "") {
-        
-        document.getElementById("sub-form").onclick=function(){
-          
-          document.querySelector(".docs").style.display = "block";
-        }
-        }
-      }
+function showPosition(position) {
+  x.value = position.coords.latitude;
+  z.value = position.coords.longitude;
+  if (x.value != "" && z.value != "") {
+    document.getElementById("sure-location").style.display = "block";
+    subDocLoc.style.display = "block";
+    document.getElementById("sub-doc-loc").onclick = function () {
+      document.querySelector(".docs").style.display = "block";
+    };
+  }
+}
  </script>
     {% endblock %}
     <!-- END BLOCK CONTENT -->
