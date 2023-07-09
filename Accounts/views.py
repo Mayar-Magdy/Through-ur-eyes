@@ -114,6 +114,7 @@ def profile(request):
 
    
 
+<<<<<<< HEAD
 def profile1(request):# get the user object from the 
      user = request.user # get the eye images that belong to the user 
      eye_images = EyeImage.objects.filter(user=user) # render the template with the eye images as context 
@@ -131,6 +132,8 @@ def eye_image_view(request):
 
    
 
+=======
+>>>>>>> 054841a07e7dee4fc756d8b9d27b65421b79ab72
 @login_required(login_url='login')
 def update_user(request):
  user= request.user
@@ -153,6 +156,7 @@ def update_user(request):
  else:
      return JsonResponse({'message': 'Invalid request'})
 
+<<<<<<< HEAD
 @login_required(login_url='login')
 def update(request):
  user= request.user
@@ -174,6 +178,8 @@ def update(request):
     return render(request,'registration/profile.html')
  else:
     return render(request,'registration/profile.html')
+=======
+>>>>>>> 054841a07e7dee4fc756d8b9d27b65421b79ab72
 
 def about(request):
    return render(request,'about.html')

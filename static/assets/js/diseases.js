@@ -10,6 +10,7 @@ const selectImage3 = document.querySelector(".select-image3");
 const inputFile3 = document.querySelector("#file3");
 const imgArea3 = document.querySelector(".img-area3");
 
+<<<<<<< HEAD
 selectImage1.addEventListener("click", function () {
   if (imgArea2.lastElementChild.hasAttribute("src")) {
     // imgArea2.lastElementChild.remove();
@@ -22,6 +23,34 @@ selectImage1.addEventListener("click", function () {
     const allImg = imgArea3.querySelectorAll("img");
     allImg.forEach((item) => item.remove());
     imgArea3.classList.remove("active");
+=======
+selectImage.addEventListener("click", function () {
+  function handleImageUpload(event) {
+    var csrfToken = "{{ csrf_token }}";
+    var fileInput = event.target;
+    var file = fileInput.files[0];
+
+    var formData = new FormData();
+    formData.append("image", file);
+
+    fetch("i", {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": csrfToken,
+      },
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        // قم بتعديل العناصر اللازمة في الصفحة بناءً على الـ result
+        console.log(result);
+        // document.getElementById("result").textContent =
+        //   JSON.stringify(result);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+>>>>>>> 054841a07e7dee4fc756d8b9d27b65421b79ab72
   }
   inputFile1.click();
 });

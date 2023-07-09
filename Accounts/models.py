@@ -107,7 +107,11 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractUser):
     username = models.CharField(max_length=200)
+<<<<<<< HEAD
     national_number = models.CharField(max_length=14, unique=True, blank=True,validators=[validate_national_id_and_dob])
+=======
+    national_number = models.CharField(max_length=14, unique=True, blank=True)
+>>>>>>> 054841a07e7dee4fc756d8b9d27b65421b79ab72
     phone_number = models.TextField(null=True)
     email = models.EmailField(blank=True)
     gender = models.CharField(max_length=10, choices=[('male', 'Male'), ('female', 'Female')], blank=True)
