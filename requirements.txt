@@ -34,7 +34,6 @@ Pygments==2.14.0
 python-decouple==3.8
 python-dotenv==1.0.0
 pytz==2022.7.1
-PyYAML==5.4.1; platform_python_implementation != 'PyPy'
 requests==2.31.0
 sqlparse==0.4.4
 toml==0.10.2
